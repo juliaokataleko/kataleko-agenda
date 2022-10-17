@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:orientation="vertical"
+    android:padding="15dp"
+   android:layout_marginBottom="18dp"
+    android:background="#D6DBE1"
+    android:layout_height="wrap_content">
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/rvTvNomeContacto"
+        android:textSize="35sp"
+        android:text="NOME"
+        android:textColor="#22272B"
+        />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/rvTvPhoneContacto"
+        android:textSize="20sp"
+        android:layout_marginLeft="0dp"
+        android:text="Telefone"
+        android:textColor="#1B2E9A"
+        />
+
+</LinearLayout>
