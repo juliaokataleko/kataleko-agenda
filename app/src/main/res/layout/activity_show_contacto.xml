@@ -119,17 +119,11 @@
             android:layout_height="wrap_content"
             android:id="@+id/btnShowContactoSalvar"
             android:text="@string/salvar"/>
+
         <Button
             android:layout_marginLeft="10dp"
             android:layout_width="0dp"
             android:layout_weight="1"
-            android:layout_height="wrap_content"
-            android:id="@+id/btnShowContactoVoltar"
-            android:text="@string/cancelar"/>
-
-        <Button
-            android:layout_marginLeft="10dp"
-            android:layout_width="140dp"
             android:layout_height="wrap_content"
             android:id="@+id/btnShowContactoDelete"
             android:text="Eliminar"/>

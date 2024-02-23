@@ -1,5 +1,7 @@
 package com.kataleko.katalekoagenda.activities;
 
+import androidx.annotation.NonNull;
+import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.annotation.SuppressLint;
@@ -7,6 +9,7 @@ import android.content.Intent;
 import android.database.Cursor;
 import android.net.Uri;
 import android.os.Bundle;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -29,6 +32,10 @@ public class ShowContactoActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_show_contacto);
 
+        // back button
+        ActionBar actionBar = getSupportActionBar();
+        actionBar.setDisplayHomeAsUpEnabled(true);
+
         intent = getIntent();
         id = intent.getExtras().getInt("id");
         dbHelper = new DBHelper(this);
@@ -42,7 +49,7 @@ public class ShowContactoActivity extends AppCompatActivity {
         viewHolder.btnSave = findViewById(R.id.btnShowContactoSalvar);
         viewHolder.btnDelete = findViewById(R.id.btnShowContactoDelete);
         viewHolder.btnEnableEdition = findViewById(R.id.btnShowContactoEditarEliminar);
-        viewHolder.btnGoBack = findViewById(R.id.btnShowContactoVoltar);
+        // viewHolder.btnGoBack = findViewById(R.id.btnShowContactoVoltar);
         viewHolder.linearLayoutButtons = findViewById(R.id.llBotoes);
         viewHolder.btnEmail = findViewById(R.id.btnEmail);
         viewHolder.btnLigar = findViewById(R.id.btnLigar);
@@ -102,12 +109,15 @@ public class ShowContactoActivity extends AppCompatActivity {
             }
         });
 
+        /*
         viewHolder.btnGoBack.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 carregarDadosDoContacto(id);
             }
         });
+
+         */
 
         viewHolder.btnLigar.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -189,5 +199,15 @@ public class ShowContactoActivity extends AppCompatActivity {
 
         viewHolder.linearLayoutButtons.setVisibility(View.GONE);
         viewHolder.btnEnableEdition.setVisibility(View.VISIBLE);
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
+        if (item.getItemId() == android.R.id.home) {
+            // Handle back button press
+            onBackPressed();
+            return true;
+        }
+        return super.onOptionsItemSelected(item);
     }
 }
